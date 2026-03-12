@@ -361,7 +361,6 @@ function renderOverview() {
           </div>
           <p class="muted" style="margin: 14px 0 0; line-height: 1.55;">
             This dashboard is built like a product: keyboard shortcuts, a command palette, and pages that tell a clear story.
-            Edit content in <span class="mono">assets/data.js</span>.
           </p>
         </div>
       </div>
@@ -728,7 +727,7 @@ function renderSkills() {
             <div class="skillcol">
               <div class="radar">${radarSvg(skills.radar)}</div>
               <div class="muted" style="margin-top: 10px; line-height: 1.5;">
-                Radar values come from <span class="mono">skills.radar</span> in <span class="mono">assets/data.js</span>.
+                Radar values show breadth, meters show depth.
               </div>
             </div>
             <div class="skillcol" id="meters">
