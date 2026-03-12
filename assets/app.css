@@ -1090,6 +1090,11 @@ html[data-theme="light"] .help-panel {
   }
   .grid {
     grid-template-columns: 1fr;
+    justify-items: center;
+    gap: 16px;
+  }
+  .grid > .card {
+    width: min(520px, 100%);
   }
   .card-timeline {
     order: 1;
