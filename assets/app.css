@@ -410,13 +410,16 @@ kbd {
   border: 1px solid var(--stroke);
   background: rgba(255, 255, 255, 0.03);
   cursor: pointer;
+  position: relative;
 }
 .burger span {
   display: block;
   height: 2px;
-  margin: 6px 10px;
+  width: 18px;
+  margin: 6px auto;
+  border-radius: 999px;
   background: var(--text);
-  opacity: 0.8;
+  opacity: 0.9;
 }
 
 .view {
@@ -1001,6 +1004,8 @@ html[data-theme="light"] .help-panel {
   .main {
     grid-column: 1;
     grid-row: 1;
+    height: 100vh;
+    overflow-y: auto;
   }
   .side-backdrop {
     display: none;
@@ -1041,11 +1046,45 @@ html[data-theme="light"] .help-panel {
   .main {
     padding: 12px 12px 20px;
   }
+  .view {
+    margin-top: 12px;
+    min-height: auto;
+  }
+  .grid {
+    grid-template-columns: 1fr;
+  }
+  .card > .card-h h2 {
+    font-size: 22px;
+  }
+  .card > .card-h h3 {
+    font-size: 18px;
+  }
+  body {
+    font-size: 16px;
+    line-height: 1.45;
+  }
+  .nav-item {
+    padding: 12px 14px;
+    font-size: 16px;
+  }
+  .chip,
+  .pill {
+    padding: 8px 10px;
+  }
+  .chip-label {
+    font-size: 12px;
+  }
   .gallery .proj {
     grid-column: span 12;
   }
   .skills .skillcol {
     grid-column: span 12;
+  }
+  .card > .card-b {
+    padding: 14px;
+  }
+  .card {
+    box-shadow: var(--shadow-1);
   }
 }
 
