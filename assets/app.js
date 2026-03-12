@@ -560,10 +560,7 @@ function renderGame() {
             Hiring pages often blur together. A small game gives a memorable signal without being gimmicky.
             The trick is making it fast, readable, and optional.
           </p>
-          <div style="height: 10px;"></div>
-          <p class="muted" style="line-height: 1.55; margin: 0;">
-            Swap hobbies and clues in <span class="mono">assets/data.js</span>.
-          </p>
+  
         </div>
       </div>
     </div>
