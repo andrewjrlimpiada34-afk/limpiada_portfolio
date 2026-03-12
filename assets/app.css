@@ -1096,6 +1096,47 @@ html[data-theme="light"] .help-panel {
   .grid > .card {
     width: min(520px, 100%);
   }
+  .card-timeline,
+  .card-projects,
+  .card-skills,
+  .card-story,
+  .card-game {
+    position: relative;
+    width: min(520px, 100%);
+    text-align: left;
+    border-radius: 18px;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.06), rgba(255, 255, 255, 0.02));
+  }
+  .card-timeline::before,
+  .card-projects::before,
+  .card-skills::before,
+  .card-story::before,
+  .card-game::before {
+    content: "";
+    position: absolute;
+    left: -6px;
+    top: 18px;
+    width: 10px;
+    height: 10px;
+    border-radius: 999px;
+    background: var(--acc);
+    box-shadow: 0 0 0 4px rgba(94, 240, 176, 0.18);
+  }
+  .card-timeline .card-h,
+  .card-projects .card-h,
+  .card-skills .card-h,
+  .card-story .card-h,
+  .card-game .card-h {
+    padding: 12px 14px 10px;
+    align-items: flex-start;
+  }
+  .card-timeline .card-b,
+  .card-projects .card-b,
+  .card-skills .card-b,
+  .card-story .card-b,
+  .card-game .card-b {
+    padding: 12px 14px 14px;
+  }
   .card-timeline {
     order: 1;
   }
