@@ -1091,10 +1091,13 @@ html[data-theme="light"] .help-panel {
   .grid {
     grid-template-columns: 1fr;
     justify-items: center;
-    gap: 16px;
+    gap: 18px;
   }
   .grid > .card {
     width: min(520px, 100%);
+  }
+  .grid > .card + .card {
+    margin-top: 4px;
   }
   .card-timeline,
   .card-projects,
@@ -1105,7 +1108,7 @@ html[data-theme="light"] .help-panel {
     width: min(520px, 100%);
     text-align: left;
     border-radius: 18px;
-    background: linear-gradient(180deg, rgba(255, 255, 255, 0.06), rgba(255, 255, 255, 0.02));
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.07), rgba(255, 255, 255, 0.02));
   }
   .card-timeline::before,
   .card-projects::before,
@@ -1121,6 +1124,21 @@ html[data-theme="light"] .help-panel {
     border-radius: 999px;
     background: var(--acc);
     box-shadow: 0 0 0 4px rgba(94, 240, 176, 0.18);
+  }
+  .card-timeline {
+    border-left: 2px solid rgba(94, 240, 176, 0.35);
+  }
+  .card-projects {
+    border-left: 2px solid rgba(118, 184, 255, 0.35);
+  }
+  .card-skills {
+    border-left: 2px solid rgba(255, 209, 102, 0.35);
+  }
+  .card-story {
+    border-left: 2px solid rgba(94, 240, 176, 0.3);
+  }
+  .card-game {
+    border-left: 2px solid rgba(118, 184, 255, 0.3);
   }
   .card-timeline .card-h,
   .card-projects .card-h,
