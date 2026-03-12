@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="en" data-theme="auto">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="color-scheme" content="light dark" />
+    <title>LimpiadaJr._Andrew_Portfolio "Unofficial"</title>
+    <meta
+      name="description"
+      content="Timeline, storytelling, game-stylized hobby guess, project gallery, skills dashboard, and theme preferences."
+    />
+    <link rel="icon" href="assets/andrew.svg"/>
+    <link rel="stylesheet" href="assets/app.css" />
+  </head>
+  <body>
+    <noscript>
+      <div class="noscript">
+        <h1>JavaScript required</h1>
+        <p>This dashboard needs JavaScript for navigation and interactions.</p>
+      </div>
+    </noscript>
+    <div class="bg" aria-hidden="true">
+      <div class="bg-grid"></div>
+      <div class="bg-blobs">
+        <span class="blob b1"></span>
+        <span class="blob b2"></span>
+        <span class="blob b3"></span>
+      </div>
+    </div>
+    <div class="app" id="appRoot">
+      <aside class="side" aria-label="Primary">
+        <div class="brand">
+          <img class="brand-img" src="assets/titit.png" alt="JR" />
+          <div class="brand-text">
+            <div class="brand-title">Andrew's Dashboard</div>
+            <div class="brand-sub">hello.world.</div>
+          </div>
+        </div>
+        <nav class="nav" id="nav">
+          <a class="nav-item" href="#/" data-route="/"><span class="nav-dot" aria-hidden="true"></span><span>Overview</span></a>
+          <a class="nav-item" href="#/timeline" data-route="/timeline"><span class="nav-dot" aria-hidden="true"></span><span>Timeline</span></a>
+          <a class="nav-item" href="#/story" data-route="/story"><span class="nav-dot" aria-hidden="true"></span><span>Story</span></a>
+          <a class="nav-item" href="#/game" data-route="/game"><span class="nav-dot" aria-hidden="true"></span><span>Guess My Hobby</span></a>
+          <a class="nav-item" href="#/projects" data-route="/projects"><span class="nav-dot" aria-hidden="true"></span><span>Projects</span></a>
+          <a class="nav-item" href="#/skills" data-route="/skills"><span class="nav-dot" aria-hidden="true"></span><span>Skills</span></a>
+          <a class="nav-item" href="#/settings" data-route="/settings"><span class="nav-dot" aria-hidden="true"></span><span>Preferences</span></a>
+        </nav>
+        <div class="side-footer">
+          <div class="side-hint">Tip: press <kbd>?</kbd> for shortcuts.</div>
+          <div class="side-meta" id="sideMeta"></div>
+        </div>
+      </aside>
+      <div class="side-backdrop" id="sideBackdrop" data-side-close="1" aria-hidden="true"></div>
+      <main class="main" id="main" tabindex="-1">
+        <header class="top">
+          <button class="burger" id="burger" aria-label="Open menu" aria-expanded="false">
+            <span></span><span></span><span></span>
+          </button>
+          <div class="crumbs" id="crumbs" aria-label="Breadcrumb"></div>
+          <div class="top-actions">
+            <button class="chip" id="cmdPalette" type="button" title="Commands (Ctrl+K)">
+              <span class="chip-kbd"><kbd>Ctrl</kbd><kbd>K</kbd></span>
+              <span class="chip-label">Commands</span>
+            </button>
+            <button class="pill" id="themeToggle" type="button" aria-label="Toggle theme">
+              <span class="pill-ic" aria-hidden="true">O</span>
+              <span class="pill-text" id="themeLabel">Theme</span>
+            </button>
+          </div>
+        </header>
+        <section class="view" id="view" aria-live="polite"></section>
+      </main>
+    </div>
+    <div class="modal" id="modal" aria-hidden="true">
+      <div class="modal-backdrop" data-close="1"></div>
+      <div class="modal-panel" role="dialog" aria-modal="true" aria-label="Details">
+        <button class="modal-x" type="button" data-close="1" aria-label="Close">X</button>
+        <div class="modal-body" id="modalBody"></div>
+      </div>
+    </div>
+    <div class="toasts" id="toasts" aria-live="polite" aria-relevant="additions"></div>
+    <div class="palette" id="palette" aria-hidden="true">
+      <div class="palette-backdrop" data-close="1"></div>
+      <div class="palette-panel" role="dialog" aria-modal="true" aria-label="Command palette">
+        <div class="palette-top">
+          <input
+            id="paletteInput"
+            class="palette-input"
+            type="text"
+            inputmode="search"
+            placeholder="Type a command or route..."
+            aria-label="Command search"
+            autocomplete="off"
+          />
+          <div class="palette-hint"><kbd>Esc</kbd> to close</div>
+        </div>
+        <div class="palette-list" id="paletteList" role="listbox" aria-label="Commands"></div>
+      </div>
+    </div>
+    <div class="help" id="help" aria-hidden="true">
+      <div class="help-backdrop" data-close="1"></div>
+      <div class="help-panel" role="dialog" aria-modal="true" aria-label="Keyboard shortcuts">
+        <button class="modal-x" type="button" data-close="1" aria-label="Close">X</button>
+        <h2>Shortcuts</h2>
+        <div class="help-grid">
+          <div class="help-row"><kbd>Ctrl</kbd><kbd>K</kbd><span>Command palette</span></div>
+          <div class="help-row"><kbd>/</kbd><span>Focus search (projects)</span></div>
+          <div class="help-row"><kbd>?</kbd><span>Open this help</span></div>
+          <div class="help-row"><kbd>Esc</kbd><span>Close dialogs</span></div>
+          <div class="help-row"><kbd>G</kbd><kbd>T</kbd><span>Go Timeline</span></div>
+          <div class="help-row"><kbd>G</kbd><kbd>P</kbd><span>Go Projects</span></div>
+          <div class="help-row"><kbd>G</kbd><kbd>S</kbd><span>Go Skills</span></div>
+        </div>
+      </div>
+    </div>
+    <script src="assets/app.js"></script>
+  </body>
+</html>
