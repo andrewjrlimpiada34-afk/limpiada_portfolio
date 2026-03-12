@@ -79,6 +79,44 @@ body {
   pointer-events: none;
   z-index: -1;
 }
+.bg-binary {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transition: opacity var(--dur-3) var(--ease-out);
+  font-family: var(--font-mono);
+  color: rgba(94, 240, 176, 0.22);
+  mix-blend-mode: screen;
+  overflow: hidden;
+}
+html[data-bg="binary"] .bg-binary {
+  opacity: 0.7;
+}
+.bg-binary .bin-col {
+  position: absolute;
+  top: -120%;
+  white-space: pre;
+  line-height: 1.2;
+  font-size: 12px;
+  animation: bin-fall 18s linear infinite;
+  opacity: 0.8;
+}
+.bg-binary .bin-col:nth-child(2n) {
+  color: rgba(118, 184, 255, 0.22);
+  animation-duration: 22s;
+}
+.bg-binary .bin-col:nth-child(3n) {
+  color: rgba(255, 209, 102, 0.18);
+  animation-duration: 26s;
+}
+@keyframes bin-fall {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(220%);
+  }
+}
 .bg-grid {
   position: absolute;
   inset: -40px;
@@ -1052,6 +1090,21 @@ html[data-theme="light"] .help-panel {
   }
   .grid {
     grid-template-columns: 1fr;
+  }
+  .card-timeline {
+    order: 1;
+  }
+  .card-projects {
+    order: 2;
+  }
+  .card-skills {
+    order: 3;
+  }
+  .card-story {
+    order: 4;
+  }
+  .card-game {
+    order: 5;
   }
   .card > .card-h h2 {
     font-size: 22px;

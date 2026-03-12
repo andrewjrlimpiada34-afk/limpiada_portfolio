@@ -165,11 +165,13 @@ const app = {
     timelineTag: "All",
     game: { current: null, picked: null, streak: 0, played: 0 },
     theme: { mode: "auto" },
+    bg: { mode: "default" },
     keySeq: [],
   },
 };
 
 const THEME_KEY = "idd_theme_mode";
+const BG_KEY = "idd_bg_mode";
 
 function safeStorageGet(key) {
   try {
@@ -249,6 +251,12 @@ function setThemeMode(mode) {
   applyTheme();
 }
 
+function setBackgroundMode(mode) {
+  app.state.bg.mode = mode;
+  safeStorageSet(BG_KEY, mode);
+  applyBackground();
+}
+
 function applyTheme() {
   const mode = app.state.theme.mode;
   const root = document.documentElement;
@@ -263,6 +271,13 @@ function applyTheme() {
 
   root.dataset.theme = mode;
   app.themeLabel.textContent = mode === "dark" ? "Dark" : "Light";
+}
+
+function applyBackground() {
+  const mode = app.state.bg.mode;
+  const root = document.documentElement;
+  root.dataset.bg = mode === "binary" ? "binary" : "default";
+  if (mode === "binary") ensureBinary();
 }
 
 function cycleTheme() {
@@ -365,7 +380,7 @@ function renderOverview() {
         </div>
       </div>
 
-      <div class="card" style="grid-column: span 4;">
+      <div class="card card-timeline" style="grid-column: span 4;">
         <div class="card-h"><h3>Timeline</h3><div class="sub">${tCount} entries</div></div>
         <div class="card-b">
           <div class="muted">Credibility in dates. Expand items for details and filter by tags.</div>
@@ -373,7 +388,7 @@ function renderOverview() {
         </div>
       </div>
 
-      <div class="card" style="grid-column: span 4;">
+      <div class="card card-projects" style="grid-column: span 4;">
         <div class="card-h"><h3>Projects</h3><div class="sub">${pCount} featured</div></div>
         <div class="card-b">
           <div class="muted">A gallery you can filter by tags and open as a detail modal.</div>
@@ -381,7 +396,7 @@ function renderOverview() {
         </div>
       </div>
 
-      <div class="card" style="grid-column: span 4;">
+      <div class="card card-skills" style="grid-column: span 4;">
         <div class="card-h"><h3>Skills</h3><div class="sub">${sCount} meters</div></div>
         <div class="card-b">
           <div class="muted">A radar view for breadth and meters for depth.</div>
@@ -389,7 +404,7 @@ function renderOverview() {
         </div>
       </div>
 
-      <div class="card" style="grid-column: span 6;">
+      <div class="card card-story" style="grid-column: span 6;">
         <div class="card-h"><h3>Story</h3><div class="sub">3 chapters</div></div>
         <div class="card-b">
           <div class="muted">A narrative slice: how you think, what you ship, and why.</div>
@@ -397,7 +412,7 @@ function renderOverview() {
         </div>
       </div>
 
-      <div class="card" style="grid-column: span 6;">
+      <div class="card card-game" style="grid-column: span 6;">
         <div class="card-h"><h3>Guess My Hobby</h3><div class="sub">mini game</div></div>
         <div class="card-b">
           <div class="muted">A playful way to show personality. Try to guess from clues.</div>
@@ -762,6 +777,7 @@ function renderSkills() {
 
 function renderSettings() {
   const mode = app.state.theme.mode;
+  const bgMode = app.state.bg.mode;
   app.view.innerHTML = `
     <div class="grid">
       <div class="card" style="grid-column: span 12;">
@@ -779,6 +795,11 @@ function renderSettings() {
             <button class="btn ${mode === "light" ? "acc" : ""}" type="button" data-theme="light">Light</button>
             <span class="spacer"></span>
             <button class="btn danger" type="button" data-act="reset">Reset UI State</button>
+          </div>
+          <div class="row" style="margin-top: 12px;">
+            <span class="pilltag">Live Background</span>
+            <button class="btn ${bgMode === "default" ? "acc" : ""}" type="button" data-bg="default">Default</button>
+            <button class="btn ${bgMode === "binary" ? "acc" : ""}" type="button" data-bg="binary">Binary</button>
           </div>
           <p class="muted" style="margin: 14px 0 0; line-height: 1.55;">
             Theme preference persists in <span class="mono">localStorage</span>.
@@ -839,8 +860,11 @@ function resetState() {
   app.state.timelineTag = "All";
   app.state.game = { current: null, picked: null, streak: 0, played: 0 };
   safeStorageRemove(THEME_KEY);
+  safeStorageRemove(BG_KEY);
   app.state.theme.mode = "auto";
+  app.state.bg.mode = "default";
   applyTheme();
+  applyBackground();
   toast("Reset", "UI state cleared", "R");
   render();
 }
@@ -880,7 +904,9 @@ function renderPalette(query) {
 
 function boot() {
   app.state.theme.mode = safeStorageGet(THEME_KEY) || "auto";
+  app.state.bg.mode = safeStorageGet(BG_KEY) || "default";
   applyTheme();
+  applyBackground();
   if (window.matchMedia) {
     const mq = window.matchMedia("(prefers-color-scheme: dark)");
     const onChange = () => {
@@ -943,6 +969,13 @@ function boot() {
     const theme = t.closest("button[data-theme]");
     if (theme) {
       setThemeMode(theme.getAttribute("data-theme"));
+      renderSettings();
+      return;
+    }
+
+    const bg = t.closest("button[data-bg]");
+    if (bg) {
+      setBackgroundMode(bg.getAttribute("data-bg"));
       renderSettings();
       return;
     }
@@ -1077,6 +1110,27 @@ function boot() {
     const bd = $("#sideBackdrop");
     if (bd) bd.setAttribute("aria-hidden", open ? "false" : "true");
   });
+}
+
+function ensureBinary() {
+  const el = $("#bgBinary");
+  if (!el || el.childElementCount) return;
+  const cols = Math.max(10, Math.floor(window.innerWidth / 60));
+  const rows = 60;
+  const frag = document.createDocumentFragment();
+  for (let i = 0; i < cols; i++) {
+    const col = document.createElement("div");
+    col.className = "bin-col";
+    col.style.left = `${i * 60 + 8}px`;
+    col.style.animationDelay = `${(i % 6) * -2.2}s`;
+    let text = "";
+    for (let r = 0; r < rows; r++) {
+      text += Math.random() > 0.5 ? "1\n" : "0\n";
+    }
+    col.textContent = text;
+    frag.appendChild(col);
+  }
+  el.appendChild(frag);
 }
 
 boot();
