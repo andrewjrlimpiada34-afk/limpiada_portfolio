@@ -594,8 +594,9 @@ kbd {
   border-radius: 16px;
   border: 1px solid var(--stroke);
   background: linear-gradient(160deg, rgba(118, 184, 255, 0.2), rgba(94, 240, 176, 0.18));
-  background-size: cover;
+  background-size: contain;
   background-position: center;
+  background-repeat: no-repeat;
   display: grid;
   place-items: end start;
   padding: 12px;
@@ -605,12 +606,6 @@ kbd {
   scroll-snap-align: center;
   position: relative;
   overflow: hidden;
-}
-.shot span {
-  background: rgba(0, 0, 0, 0.35);
-  padding: 4px 8px;
-  border-radius: 999px;
-  font-size: 12px;
 }
 .shot.s2 {
   background: linear-gradient(160deg, rgba(94, 240, 176, 0.2), rgba(255, 209, 102, 0.18));

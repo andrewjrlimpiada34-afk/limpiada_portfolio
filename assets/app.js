@@ -359,11 +359,11 @@ function renderOverview() {
         <div class="card-b">
           <div class="showcase" aria-label="Highlights carousel">
             <div class="showcase-track" id="showcaseTrack">
-              <div class="shot s1" style="background-image:url('assets/shot1.jpg')"><span>Timeline</span></div>
-              <div class="shot s2" style="background-image:url('assets/shot2.jpg')"><span>Projects</span></div>
-              <div class="shot s3" style="background-image:url('assets/shot3.jpg')"><span>Skills</span></div>
-              <div class="shot s4" style="background-image:url('assets/shot4.jpg')"><span>Story</span></div>
-              <div class="shot s5" style="background-image:url('assets/shot5.jpg')"><span>Hobby</span></div>
+              <div class="shot s1" style="background-image:url('assets/shot1.jpg')"></div>
+              <div class="shot s2" style="background-image:url('assets/shot2.jpg')"></div>
+              <div class="shot s3" style="background-image:url('assets/shot3.jpg')"></div>
+              <div class="shot s4" style="background-image:url('assets/shot4.jpg')"></div>
+              <div class="shot s5" style="background-image:url('assets/shot5.jpg')"></div>
             </div>
           </div>
         </div>
