@@ -565,6 +565,66 @@ kbd {
   padding: 16px;
 }
 
+.card-mobile-showcase {
+  display: none;
+}
+.showcase {
+  position: relative;
+  overflow: hidden;
+}
+.showcase-track {
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: minmax(180px, 1fr);
+  gap: 12px;
+  overflow-x: auto;
+  padding-bottom: 6px;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+}
+.showcase-track::-webkit-scrollbar {
+  height: 6px;
+}
+.showcase-track::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 999px;
+}
+.shot {
+  height: 140px;
+  border-radius: 16px;
+  border: 1px solid var(--stroke);
+  background: linear-gradient(160deg, rgba(118, 184, 255, 0.2), rgba(94, 240, 176, 0.18));
+  background-size: cover;
+  background-position: center;
+  display: grid;
+  place-items: end start;
+  padding: 12px;
+  font-family: var(--font-display);
+  font-weight: 700;
+  letter-spacing: 0.2px;
+  scroll-snap-align: center;
+  position: relative;
+  overflow: hidden;
+}
+.shot span {
+  background: rgba(0, 0, 0, 0.35);
+  padding: 4px 8px;
+  border-radius: 999px;
+  font-size: 12px;
+}
+.shot.s2 {
+  background: linear-gradient(160deg, rgba(94, 240, 176, 0.2), rgba(255, 209, 102, 0.18));
+}
+.shot.s3 {
+  background: linear-gradient(160deg, rgba(255, 209, 102, 0.2), rgba(118, 184, 255, 0.18));
+}
+.shot.s4 {
+  background: linear-gradient(160deg, rgba(118, 184, 255, 0.2), rgba(255, 255, 255, 0.1));
+}
+.shot.s5 {
+  background: linear-gradient(160deg, rgba(94, 240, 176, 0.2), rgba(12, 14, 18, 0.2));
+}
+
 .muted {
   color: var(--muted);
 }
@@ -1139,6 +1199,27 @@ html[data-theme="light"] .help-panel {
   }
   .card-game {
     border-left: 2px solid rgba(118, 184, 255, 0.3);
+  }
+  .card-timeline,
+  .card-projects,
+  .card-skills,
+  .card-story,
+  .card-game {
+    display: none;
+  }
+  .card-mobile-showcase {
+    display: block;
+  }
+  .showcase-track {
+    animation: showcase-slide 18s linear infinite;
+  }
+  @keyframes showcase-slide {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-50%);
+    }
   }
   .card-timeline .card-h,
   .card-projects .card-h,
