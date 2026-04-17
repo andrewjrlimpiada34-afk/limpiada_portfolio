@@ -494,12 +494,27 @@ kbd {
   }
 }
 
-.grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(clamp(300px, 100%, 450px), 1fr));
-  gap: clamp(var(--spacing-l), 6vh, var(--spacing-l) * 1.5);
-  justify-items: center;
-  align-items: stretch;
+.overview-carousel {
+  display: flex;
+  flex-direction: row;
+  gap: var(--spacing-l);
+  overflow-x: auto;
+  padding-bottom: var(--spacing-m);
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  scrollbar-width: thin;
+}
+.overview-carousel::-webkit-scrollbar {
+  height: var(--spacing-s);
+}
+.overview-carousel::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.24);
+  border-radius: 999px;
+}
+.overview-carousel > .card {
+  flex: 0 0 clamp(300px, 85vw, 420px);
+  scroll-snap-align: center;
+  min-height: clamp(200px, 35vh, 280px);
 }
 .card {
   border-radius: var(--radius-l);

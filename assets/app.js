@@ -398,43 +398,41 @@ function renderOverview() {
         </div>
       </div>
 
-      <div class="card card-timeline" style="grid-column: span 4;">
-        <div class="card-h"><h3>Timeline</h3><div class="sub">${tCount} entries</div></div>
-        <div class="card-b">
-          <div class="muted">Credibility in dates. Expand items for details and filter by tags.</div>
-          <div style="margin-top: 12px;"><button class="btn" data-go="#/timeline" type="button">Go Timeline</button></div>
+      <div class="overview-carousel">
+        <div class="card card-timeline">
+          <div class="card-h"><h3>Timeline</h3><div class="sub">${tCount} entries</div></div>
+          <div class="card-b">
+            <div class="muted">Credibility in dates. Expand items for details and filter by tags.</div>
+            <div style="margin-top: var(--spacing-m);"><button class="btn" data-go="#/timeline" type="button">Go Timeline</button></div>
+          </div>
         </div>
-      </div>
-
-      <div class="card card-projects" style="grid-column: span 4;">
-        <div class="card-h"><h3>Projects</h3><div class="sub">${pCount} featured</div></div>
-        <div class="card-b">
-          <div class="muted">A gallery you can filter by tags and open as a detail modal.</div>
-          <div style="margin-top: 12px;"><button class="btn" data-go="#/projects" type="button">Go Projects</button></div>
+        <div class="card card-projects">
+          <div class="card-h"><h3>Projects</h3><div class="sub">${pCount} featured</div></div>
+          <div class="card-b">
+            <div class="muted">A gallery you can filter by tags and open as a detail modal.</div>
+            <div style="margin-top: var(--spacing-m);"><button class="btn" data-go="#/projects" type="button">Go Projects</button></div>
+          </div>
         </div>
-      </div>
-
-      <div class="card card-skills" style="grid-column: span 4;">
-        <div class="card-h"><h3>Skills</h3><div class="sub">${sCount} meters</div></div>
-        <div class="card-b">
-          <div class="muted">A radar view for breadth and meters for depth.</div>
-          <div style="margin-top: 12px;"><button class="btn" data-go="#/skills" type="button">Go Skills</button></div>
+        <div class="card card-skills">
+          <div class="card-h"><h3>Skills</h3><div class="sub">${sCount} meters</div></div>
+          <div class="card-b">
+            <div class="muted">A radar view for breadth and meters for depth.</div>
+            <div style="margin-top: var(--spacing-m);"><button class="btn" data-go="#/skills" type="button">Go Skills</button></div>
+          </div>
         </div>
-      </div>
-
-      <div class="card card-story" style="grid-column: span 6;">
-        <div class="card-h"><h3>Story</h3><div class="sub">3 chapters</div></div>
-        <div class="card-b">
-          <div class="muted">A narrative slice: how you think, what you ship, and why.</div>
-          <div style="margin-top: 12px;"><button class="btn" data-go="#/story" type="button">Read Story</button></div>
+        <div class="card card-story">
+          <div class="card-h"><h3>Story</h3><div class="sub">3 chapters</div></div>
+          <div class="card-b">
+            <div class="muted">A narrative slice: how you think, what you ship, and why.</div>
+            <div style="margin-top: var(--spacing-m);"><button class="btn" data-go="#/story" type="button">Read Story</button></div>
+          </div>
         </div>
-      </div>
-
-      <div class="card card-game" style="grid-column: span 6;">
-        <div class="card-h"><h3>Guess My Hobby</h3><div class="sub">mini game</div></div>
-        <div class="card-b">
-          <div class="muted">A playful way to show personality. Try to guess from clues.</div>
-          <div style="margin-top: 12px;"><button class="btn acc" data-go="#/game" type="button">Play</button></div>
+        <div class="card card-game">
+          <div class="card-h"><h3>Guess My Hobby</h3><div class="sub">mini game</div></div>
+          <div class="card-b">
+            <div class="muted">A playful way to show personality. Try to guess from clues.</div>
+            <div style="margin-top: var(--spacing-m);"><button class="btn acc" data-go="#/game" type="button">Play</button></div>
+          </div>
         </div>
       </div>
     </div>
