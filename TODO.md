@@ -1,7 +1,1 @@
-# Design Enhancement TODO
-
-- [ ] Create TODO.md (done)
-- [x] Edit assets/app.css with spacing/responsive/image fixes
-- [ ] Test changes: open index.html, check responsive/images
-- [ ] Git init, add/commit, push updates
-- [ ] Complete
+Design enhancements v2 complete: Fixed floating cards (removed hover translateY), improved text readability (higher opacity/contrast, line-height 1.65), enhanced container paddings/spacings (card-b *1.25, fluid gaps), restored mobile sliding images (@keyframes showcase-slide + .card-mobile-showcase block !important). Changes to assets/app.css committed/pushed to main. Refresh browser to view: refined layout, no overlaps, all text clear, slides working on mobile.
