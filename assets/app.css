@@ -496,10 +496,10 @@ kbd {
 
 .grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(clamp(280px, 28vw, 380px), 1fr));
-  gap: var(--spacing-m);
-  justify-items: stretch;
-  align-items: start;
+  grid-template-columns: repeat(auto-fit, minmax(clamp(300px, 100%, 450px), 1fr));
+  gap: clamp(var(--spacing-l), 6vh, var(--spacing-l) * 1.5);
+  justify-items: center;
+  align-items: stretch;
 }
 .card {
   border-radius: var(--radius-l);
