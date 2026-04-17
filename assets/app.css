@@ -23,9 +23,9 @@
   --bg1: #0f1320;
   --panel: rgba(255, 255, 255, 0.06);
   --panel2: rgba(255, 255, 255, 0.08);
-  --text: rgba(255, 255, 255, 0.9);
-  --muted: rgba(255, 255, 255, 0.64);
-  --faint: rgba(255, 255, 255, 0.42);
+--text: rgb(255 255 255 / 0.96);
+  --muted: rgb(255 255 255 / 0.8);
+  --faint: rgb(255 255 255 / 0.6);
   --stroke: rgba(255, 255, 255, 0.12);
   --stroke2: rgba(255, 255, 255, 0.18);
 
@@ -42,9 +42,9 @@ html[data-theme="light"] {
   --bg1: #efece1;
   --panel: rgba(0, 0, 0, 0.04);
   --panel2: rgba(0, 0, 0, 0.06);
-  --text: rgba(8, 10, 16, 0.9);
-  --muted: rgba(8, 10, 16, 0.62);
-  --faint: rgba(8, 10, 16, 0.46);
+  --text: rgb(8 10 16 / 0.96);
+  --muted: rgb(8 10 16 / 0.8);
+  --faint: rgb(8 10 16 / 0.6);
   --stroke: rgba(0, 0, 0, 0.12);
   --stroke2: rgba(0, 0, 0, 0.18);
 
@@ -74,7 +74,7 @@ body {
   font-family: var(--font-body);
   letter-spacing: 0.025em;
   font-size: clamp(15px, 4vw, 17px);
-  line-height: 1.55;
+  line-height: 1.65;
 }
 
 .bg {
@@ -511,7 +511,6 @@ kbd {
 }
 .card:hover {
   box-shadow: var(--shadow-2);
-  transform: translateY(-4px);
 }
 .card > .card-h {
   padding: var(--spacing-l) var(--spacing-l) var(--spacing-m);
@@ -535,7 +534,7 @@ kbd {
   font-size: 12px;
 }
 .card > .card-b {
-  padding: var(--spacing-l);
+  padding: calc(var(--spacing-l) * 1.25);
 }
 
 .card-mobile-showcase {
@@ -1141,8 +1140,15 @@ html[data-theme="light"] .help-panel {
     max-width: 600px;
     margin: 0 auto;
   }
+  .card-mobile-showcase {
+    display: block !important;
+  }
   .showcase-track {
     animation: showcase-slide 20s linear infinite;
+  }
+  @keyframes showcase-slide {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
   }
   .card-timeline .card-h, .card-projects .card-h, .card-skills .card-h, .card-story .card-h, .card-game .card-h {
     padding: var(--spacing-m);
