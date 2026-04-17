@@ -129,7 +129,7 @@ const skills = {
     { name: "Backend", value: 42, note: "tokens, layout, motion" },
     { name: "Design", value: 78, note: "APIs, auth, data modeling" },
     { name: "Development", value: 59, note: "components, state patterns" },
-    { name: "Testing", value: 8, note: "queries, schema choices" },
+    { name: "Testing", value: 80, note: "queries, schema choices" },
     { name: "Writing", value: 78, note: "clear narratives, specs" },
   ],
 };
